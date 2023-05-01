@@ -3,8 +3,8 @@ import pyspark.sql.types as t
 
 name_basics_schema = t.StructType([t.StructField('nconst', t.StringType(), True),
                                    t.StructField('primaryName', t.StringType(), True),
-                                   t.StructField('birthYear', t.DateType(), True),
-                                   t.StructField('deathYear', t.DateType(), True),
+                                   t.StructField('birthYear', t.StringType(), True),
+                                   t.StructField('deathYear', t.StringType(), True),
                                    t.StructField('primaryProfession', t.StringType(), True),
                                    t.StructField('knownForTitles', t.StringType(), True)])
 
@@ -22,8 +22,8 @@ title_basics_schema = t.StructType([t.StructField('tconst', t.StringType(), True
                                     t.StructField('primaryTitle', t.StringType(), True),
                                     t.StructField('originalTitle', t.StringType(), True),
                                     t.StructField('isAdult', t.BooleanType(), True),
-                                    t.StructField('startYear', t.DateType(), True),
-                                    t.StructField('endYear', t.DateType(), True),
+                                    t.StructField('startYear', t.StringType(), True),
+                                    t.StructField('endYear', t.StringType(), True),
                                     t.StructField('runtimeMinutes', t.IntegerType(), True),
                                     t.StructField('genres', t.StringType(), True)])
 

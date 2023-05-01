@@ -5,7 +5,6 @@ def import_tsv_to_df(spark_session, tsv_path, df_schema):
                                        sep=r'\t',
                                        header=True,
                                        nullValue=r'\N',
-                                       dateFormat='YYYY',
                                        schema=df_schema)
     return result_df
 
