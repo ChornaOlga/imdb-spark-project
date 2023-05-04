@@ -15,13 +15,13 @@ title_akas_schema = t.StructType([t.StructField('titleId', t.StringType(), True)
                                   t.StructField('language', t.StringType(), True),
                                   t.StructField('types', t.StringType(), True),
                                   t.StructField('attributes', t.StringType(), True),
-                                  t.StructField('isOriginalTitle', t.BooleanType(), True)])
+                                  t.StructField('isOriginalTitle', t.IntegerType(), True)])
 
 title_basics_schema = t.StructType([t.StructField('tconst', t.StringType(), True),
                                     t.StructField('titleType', t.StringType(), True),
                                     t.StructField('primaryTitle', t.StringType(), True),
                                     t.StructField('originalTitle', t.StringType(), True),
-                                    t.StructField('isAdult', t.BooleanType(), True),
+                                    t.StructField('isAdult', t.IntegerType(), True),
                                     t.StructField('startYear', t.StringType(), True),
                                     t.StructField('endYear', t.StringType(), True),
                                     t.StructField('runtimeMinutes', t.IntegerType(), True),
