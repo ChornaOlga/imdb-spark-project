@@ -15,7 +15,7 @@ import imdb_data_schemas as schemas
 import columns as c
 
 from imdb_tsv_df_io import import_tsv_to_df, export_df_to_csv
-from transformation_tasks import tt1, tt2, tt3, tt4, tt5, tt6, tt7
+from transformation_tasks import tt1, tt2, tt3, tt4, tt5, tt6, tt7, tt8
 
 
 def main():
@@ -76,8 +76,23 @@ def main():
     #                  'csv_results/top_series_by_number_of_episodes')
 
     # 10 titles of the most popular movies/series etc. by each decade
-    export_df_to_csv(tt7.transformation_task_7(title_basics_df, title_ratings_df),
-                     'csv_results/titles_of_most_popular_by_each_decade')
+    # export_df_to_csv(tt7.transformation_task_7(title_basics_df, title_ratings_df),
+    #                  'csv_results/titles_of_most_popular_by_each_decade')
+
+    # 10 titles of the most popular movies/series etc. by each genre
+    # export_df_to_csv(tt8.transformation_task_8(title_basics_df, title_ratings_df),
+    #                  'csv_results/titles_of_most_popular_by_each_genre')
+
+    # ------------------Alternative 7 and 8 task-------------------------------------#
+    # alternative = True
+    # # 10 titles of the most popular movies/series etc. by each decade
+    # export_df_to_csv(tt7.transformation_task_7(title_basics_df, title_ratings_df, alternative),
+    #                  'csv_results/titles_of_most_popular_by_each_decade_alternative')
+    #
+    # # 10 titles of the most popular movies/series etc. by each genre
+    # export_df_to_csv(tt8.transformation_task_8(title_basics_df, title_ratings_df, alternative),
+    #                  'csv_results/titles_of_most_popular_by_each_genre_alternative')
+    # ------------------End of alternative 7 and 8 task-------------------------------#
 
 
 if __name__ == '__main__':
