@@ -6,6 +6,7 @@
 
 from pyspark import SparkConf
 from pyspark.sql import SparkSession, Window
+from math import floor
 
 import pyspark.sql.types as t
 import pyspark.sql.functions as f
@@ -14,7 +15,7 @@ import imdb_data_schemas as schemas
 import columns as c
 
 from imdb_tsv_df_io import import_tsv_to_df, export_df_to_csv
-from transformation_tasks import tt1, tt2, tt3, tt4, tt5, tt6
+from transformation_tasks import tt1, tt2, tt3, tt4, tt5, tt6, tt7
 
 
 def main():
@@ -75,11 +76,9 @@ def main():
     #                  'csv_results/top_series_by_number_of_episodes')
 
     # 10 titles of the most popular movies/series etc. by each decade
-    title_basics_df = title_basics_df.withColumn(c.startYear, f.col(c.startYear).cast('int'))
-    title_year_crop_df = title_basics_df.select(f.col(c.tconst), f.col(c.startYear))
-    title_year_check_crop_df = title_year_crop_df.filter(f.col(c.startYear).isNull())
-    title_year_rating_df = title_year_check_crop_df.join(title_ratings_df.drop(f.col(c.numVotes)), on=c.tconst, how='inner')
-    title_year_rating_df.orderBy(f.col(c.startYear)).show(100)
+    export_df_to_csv(tt7.transformation_task_7(title_basics_df, title_ratings_df),
+                     'csv_results/titles_of_most_popular_by_each_decade')
+
 
 if __name__ == '__main__':
     main()
