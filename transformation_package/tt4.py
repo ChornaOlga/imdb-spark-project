@@ -4,6 +4,22 @@ import columns as c
 
 
 def transformation_task_4(characters_df, titles_df, names_df):
+    """
+    Returns a DataFrame containing names of people, corresponding movies/series,
+    and characters they played in those films.
+
+    Args:
+        characters_df: A PySpark DataFrame containing character information,
+            with columns `tconst`, `nconst`, and `characters`.
+        titles_df: A PySpark DataFrame containing information about movies/series titles,
+            with columns `tconst` and `primaryTitle`.
+        names_df: A PySpark DataFrame containing information about actors,
+            with columns `nconst` and `primaryName`.
+
+    Returns:
+        A PySpark DataFrame containing the names of people, corresponding movies/series,
+        and characters they played in those films, with columns `primaryName`, `primaryTitle`, and `characters`.
+    """
     persons_in_titles = characters_df.select(f.col(c.tconst),
                                              f.col(c.nconst),
                                              f.col(c.characters))
