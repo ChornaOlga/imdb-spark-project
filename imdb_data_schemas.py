@@ -1,3 +1,17 @@
+"""
+This module contains PySpark schema definitions for various IMDb datasets.
+
+PySpark schemas define the structure of a DataFrame. They specify the name, data type, and whether or not a column can contain null values.
+
+Schemas:
+    name_basics_schema: PySpark schema for the name.basics dataset.
+    title_akas_schema: PySpark schema for the title.akas dataset.
+    title_basics_schema: PySpark schema for the title.basics dataset.
+    title_crew_schema: PySpark schema for the title.crew dataset.
+    title_episode_schema: PySpark schema for the title.episode dataset.
+    title_principals_schema: PySpark schema for the title.principals dataset.
+    title_ratings_schema: PySpark schema for the title.ratings dataset.
+"""
 import pyspark.sql.types as t
 
 
